@@ -14,7 +14,16 @@ public class Trabajador {
     private String nombres;
     private String correo;
     private double sueldo;
-    private double mesSueldo;
+    private String mesSueldo;
+    
+    public Trabajador(String c, String nom, String co, 
+            double s, String mS){
+        cedula = c;
+        nombres = nom;
+        correo = co;
+        sueldo = s;
+        mesSueldo = mS;
+    }
     
     public void establecerCedula(String c){
         cedula = c;
@@ -28,8 +37,8 @@ public class Trabajador {
     public void establecerSueldo(double c){
         sueldo = c;
     }
-    public void calcularMesSueldo(){
-        mesSueldo = sueldo;
+    public void establecerMesSueldo(String c){
+        mesSueldo = c;
     }
     
     public String obtenerCedula(){
@@ -44,9 +53,19 @@ public class Trabajador {
     public double obtenerSueldo(){
         return sueldo;
     }
-    public double obtenerMesSueldo(){
+    public String obtenerMesSueldo(){
         return mesSueldo;
     }
     
-    
+    @Override
+    public String toString(){
+        String data = String.format("Cédula: %s\n"
+                + "Nombre: %s\n"
+                +"Correro: %s\n"
+                +"Sueldo: %.2f\n"
+                +"Mes del Sueldo: %s\n", 
+                obtenerCedula(), obtenerNombres(),obtenerCorreo(),obtenerSueldo(),
+                obtenerMesSueldo());
+        return data;
+    }
 }
